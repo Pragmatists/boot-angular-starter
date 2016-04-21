@@ -1,0 +1,56 @@
+import org.apache.tools.ant.filters.FixCrLfFilter
+
+buildscript {
+    repositories {
+        jcenter()
+        maven { url "http://repo.spring.io/milestone" }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.3.1.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'spring-boot'
+apply plugin: 'jacoco'
+
+jar {
+    baseName = 'st-runner'
+}
+
+springBoot {
+    mainClass = "pl.pragmatists.starter.Application"
+}
+
+tasks.getByName('bootRun') {
+    systemProperty('spring.profiles.active', 'demo')
+}
+
+repositories {
+    jcenter()
+    maven { url "http://repo.spring.io/milestone" }
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web:1.3.3.RELEASE")
+    compile ("org.springframework.boot:spring-boot-actuator:1.3.3.RELEASE")
+    compile project(':api')
+    compile project(path: ':web', configuration: 'archives')
+}
+
+task copyToPackage(type: Copy) {
+    from('build/libs') {
+        include '**/*.jar'
+    }
+    from('src/main/package') {
+        include '**/*.sh'
+        filter(FixCrLfFilter.class,
+                eol: FixCrLfFilter.CrLf.newInstance('lf'),
+                eof: FixCrLfFilter.AddAsisRemove.newInstance('remove'))
+    }
+    from('src/main/package') {
+        exclude '**/*.sh'
+    }
+    into 'build/distributions/package'
+    dependsOn bootRepackage
+}

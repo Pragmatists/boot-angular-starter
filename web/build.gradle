@@ -1,0 +1,36 @@
+plugins {
+    id "com.moowork.node" version "0.11"
+    id "base"
+    id "maven-publish"
+}
+
+task npmClean(type: NpmTask) {
+    args = ['run', 'clean']
+}
+
+task npmBuild(type: NpmTask) {
+    args = ['run', 'build']
+}
+
+task serve(type: NpmTask) {
+    args = ['start']
+}
+
+task webJar(type: Jar) {
+    version scmVersion.version
+    baseName "st-web"
+    metaInf {
+        from('build/dist/')
+        into 'resources'
+    }
+    destinationDir file('build/libs')
+}
+
+artifacts {
+    archives webJar
+}
+
+clean.dependsOn(npmClean)
+webJar.dependsOn(npmBuild)
+assemble.dependsOn(webJar)
+npmBuild.dependsOn(npm_install)

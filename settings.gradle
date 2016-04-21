@@ -1,0 +1,4 @@
+include 'api', 'runner'
+include 'web'
+
+rootProject.name = 'starter'

@@ -1,0 +1,64 @@
+---
+root: false
+
+parser: babel-eslint
+
+plugins: [ angular ]
+
+env:
+  jasmine: true
+  node: false
+
+globals:
+  _: true
+  angular: true
+  browser: true
+  # globals below should be used only in tests
+  inject: true
+  module: true
+
+rules:
+
+  # Possible Errors
+  no-console: error
+
+  # Angular: Possible Errors
+  angular/no-private-call: error
+
+  # Angular: Best Practices
+  angular/controller-as: error
+  angular/controller-as-route: error
+
+  # Angular: Deprecated Features
+  angular/no-cookiestore : warn
+  angular/no-directive-replace: warn
+  angular/no-http-callback: warn
+
+  # Angular: Naming
+  angular/controller-name:
+    - error
+    - /^[A-Z][A-Za-z]*Controller$/
+  angular/directive-name:
+    - warn
+    - /^st[A-Z]\w*$/
+  angular/module-name:
+    - error
+    - /^st[\.a-z]*$/
+
+  # Angular: Wrappers
+  angular/angularelement: error
+  angular/definedundefined: error
+  angular/document-service: error
+  angular/interval-service: error
+  angular/json-functions: warn
+  angular/log: error
+  angular/no-angular-mock: warn
+  angular/no-jquery-angularelement: error
+  angular/timeout-service: error
+  angular/typecheck-array: error
+  angular/typecheck-date : error
+  angular/typecheck-function: error
+  angular/typecheck-number: error
+  angular/typecheck-object: error
+  angular/typecheck-string: error
+  angular/window-service: error

@@ -1,0 +1,16 @@
+allprojects {
+    apply plugin : 'pl.allegro.tech.build.axion-release'
+    version = scmVersion.version
+    group = 'pl.pragmatists.starter'
+}
+
+buildscript {
+	repositories {
+		mavenLocal()
+		mavenCentral()
+	}
+    dependencies {
+        classpath 'pl.allegro.tech.build:axion-release-plugin:1.3.4'
+    }
+}
+

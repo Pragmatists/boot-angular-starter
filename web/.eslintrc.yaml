@@ -1,0 +1,97 @@
+---
+root: true
+
+parserOptions:
+  ecmaVersion: 6
+  sourceType: script
+
+env:
+  node: true
+
+rules:
+
+  # Possible Errors
+  no-cond-assign: error
+  no-constant-condition: error
+  no-control-regex: error
+  no-debugger: error
+  no-dupe-args: error
+  no-dupe-keys: error
+  no-duplicate-case: error
+  no-empty: error
+  no-empty-character-class: error
+  no-ex-assign: error
+  no-extra-boolean-cast: error
+  no-extra-semi: error
+  no-func-assign: error
+  no-inner-declarations: error
+  no-invalid-regexp: error
+  no-irregular-whitespace: error
+  no-negated-in-lhs: error
+  no-obj-calls: error
+  no-regex-spaces: error
+  no-sparse-arrays: error
+  no-unreachable: error
+  use-isnan: error
+  valid-typeof: error
+
+  # Best Practices
+  block-scoped-var: error
+  no-case-declarations: error
+  no-else-return: error
+  no-empty-pattern: error
+  no-fallthrough: warn
+  no-octal: error
+  no-redeclare: error
+  no-self-assign: error
+  no-unused-labels: error
+
+  # Variables
+  no-delete-var: error
+  no-undef: error
+  no-use-before-define:
+    - error
+    - nofunc
+
+  # Stylistic Issues
+  brace-style:
+    - error
+    - 1tbs
+    - allowSingleLine: true
+  comma-spacing:
+    - error
+    - before: false
+      after: true
+  indent:
+    - error
+    - 4
+    - SwitchCase: 1
+  key-spacing:
+    - error
+    - beforeColon: true
+      afterColon: true
+  keyword-spacing:
+    - error
+    - before: true
+      after: true
+  new-cap: error
+  no-lonely-if: error
+  no-mixed-spaces-and-tabs: error
+  no-multiple-empty-lines: warn
+  no-nested-ternary: error
+  quotes:
+    - error
+    - single
+
+  # ECMAScript 6
+  constructor-super: warn
+  no-class-assign: error
+  no-const-assign: error
+  no-dupe-class-members: error
+  no-new-symbol: error
+  no-this-before-super: error
+
+  # Node.js and CommonJS
+  no-new-require: error
+  no-path-concat: error
+  no-process-exit: error

@@ -1,0 +1,11 @@
+build
+.gradle
+
+npm-debug.log
+newrelic.jar
+
+.idea/*
+!.idea/codeStyleSettings.xml
+!.idea/encodings.xml
+!.idea/inspectionProfiles/
+!.idea/jsLibraryMappings.xml
