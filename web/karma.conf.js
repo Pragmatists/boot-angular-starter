@@ -15,7 +15,6 @@ module.exports = function (config) {
             'vendor/angular-messages/angular-messages.js',
             'vendor/ng-dialog/js/ngDialog.js',
             'vendor/angular-animate/angular-animate.js',
-            'vendor/offline/offline.js',
             <!-- endinject -->
             'node_modules/jasmine-promise-matchers/dist/jasmine-promise-matchers.js',
             // src:app
